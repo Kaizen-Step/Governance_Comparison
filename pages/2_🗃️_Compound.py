@@ -112,10 +112,10 @@ with c2:
     st.image(Image.open('Images/Voting_Mech.jpg'))
 
 
-st.write("""  When a 'Compound' holder votes, 1 Noun NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Nouners. In Figure 4 below, we can see that as the population of Noun holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
-The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
-The beginning of Compound DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Compound, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
-Despite the fact that DAOs are still in their infancy, Compound has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
+st.write("""  The Compound protocol implements an on-chain voting mechanism to facilitate governance decisions and empower COMP token holders to actively participate in shaping the platform's future.
+When a governance proposal is submitted, it undergoes a voting process that allows COMP token holders to express their opinion on the proposed change. The voting mechanism enables token holders to collectively determine whether the proposal should be implemented or rejected.
+To cast their votes, COMP token holders can interact with the Compound governance interface or use compatible wallets and dApps that support the voting functionality. The voting process is conducted on-chain, meaning that all voting activities and results are recorded on the Ethereum blockchain, ensuring transparency and immutability.
+The voting power of COMP token holders is directly proportional to the number of tokens they hold. If a token holder possesses 1% of the total COMP token supply, their vote will carry 1% of the total voting weight. This mechanism ensures that those with a larger stake in the platform have a greater influence on the outcome of the vote.
     """)
 
 
@@ -205,10 +205,11 @@ elif Collection == 'Daily':
 
 st.write(""" ## Compound Voting Results  """)
 
-st.write("""  When a 'Compound' holder votes, 1 Noun NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Nouners. In Figure 4 below, we can see that as the population of Noun holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
-The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
-The beginning of Compound DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Compound, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
-Despite the fact that DAOs are still in their infancy, Compound has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
+st.write("""  For a proposal to be approved, it generally requires a sufficient majority of votes in favor. Once the voting period concludes, the votes are tallied, and the outcome is determined. If the proposal receives the necessary majority of votes, it is considered approved, and the proposed changes can be implemented.
+The Compound governance mechanism also allows for delegation, enabling COMP token holders to delegate their voting rights to specific addresses or trusted entities. Delegation enables token holders to assign their voting power to individuals or organizations they trust to make decisions aligned with their interests. Delegates can cast votes on behalf of the token holders who have delegated their voting power.
+The on-chain voting mechanism within Compound ensures transparency, security, and decentralized decision-making. It provides a verifiable record of all voting activities and results, allowing anyone to audit the governance process.
+By incorporating the voting mechanism, Compound encourages community participation and involvement in governance decisions. It enables token holders to contribute to the protocol's development, propose changes, and influence the parameters and functioning of the platform.
+Through the voting mechanism, Compound aims to create a decentralized governance process that reflects the collective will of the COMP token holders. This mechanism ensures that the protocol remains adaptable, responsive to the needs of its users, and evolves in line with the changing dynamics of the decentralized finance (DeFi) ecosystem.
     """)
 
 # Daily Number of Distinct Miners Before and After Shanghai Update

@@ -117,6 +117,6 @@ with c1:
 
 with c2:
     st.info(
-        '**Project Github:  [Ethereum After Shanghai Update](https://metricsdao.xyz/app/challenges)**', icon="💻")
+        '**Project Github:  [Governance Comparison](https://github.com/Kaizen-Step/Governance_Comparison)**', icon="💻")
     st.info(
         '**Data Set:  [Coherent-ETHEREUM DATASET RAW DECODED AND ENRICHED](https://app.snowflake.com/marketplace/listing/GZ2FQZL2LXD/coherent-ethereum-dataset-raw-decoded-and-enriched?search=coherent)**', icon="🧠")

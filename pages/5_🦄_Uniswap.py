@@ -119,10 +119,11 @@ with c2:
     st.image(Image.open('Images/dao_voting3.png'))
 
 
-st.write("""  When a 'Uniswap' holder votes, 1 Uniswap NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Uniswapers. In Figure 4 below, we can see that as the population of Uniswap holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
-The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
-The beginning of Uniswaps DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Uniswaps, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
-Despite the fact that DAOs are still in their infancy, Uniswaps has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
+st.write("""  The Uniswap protocol employs an on-chain voting mechanism to facilitate decision-making and governance processes within the platform. The voting mechanism enables UNI token holders to actively participate in shaping the direction and evolution of Uniswap.
+When a governance proposal is submitted, a voting period begins during which UNI token holders can cast their votes on the proposal. The voting period typically lasts for a predefined duration, allowing sufficient time for token holders to review and evaluate the proposal.
+The voting power of UNI token holders is directly proportional to the number of tokens they hold. This means that those with a larger stake in the platform have a greater influence on the outcome of the vote. For example, if a token holder possesses 1% of the total UNI token supply, their vote will carry 1% of the total voting weight.
+To cast their vote, UNI token holders can interact with the Uniswap governance interface or utilize compatible wallets and dApps that support the voting functionality. Through these platforms, token holders can indicate whether they are in favor of the proposal, against it, or choose to abstain.
+To enhance participation and decentralization, Uniswap also introduced a delegation feature. This allows UNI token holders to delegate their voting power to specific addresses or trusted entities, known as delegates. Delegation empowers token holders to assign their voting rights to individuals or organizations they trust to make decisions aligned with their interests. Delegates can cast votes on behalf of the token holders who have delegated their voting power.
     """)
 
 
@@ -212,10 +213,10 @@ elif Collection == 'Daily':
 
 st.write(""" ## Uniswaps Voting Results  """)
 
-st.write("""  When a 'Uniswaps' holder votes, 1 Uniswap NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Uniswapers. In Figure 4 below, we can see that as the population of Uniswap holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
-The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
-The beginning of Uniswaps DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Uniswaps, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
-Despite the fact that DAOs are still in their infancy, Uniswaps has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
+st.write("""  At the end of the voting period, the votes are tallied, and the proposal's outcome is determined based on the majority vote. If the proposal receives a sufficient majority of votes in favor, it is considered approved, and the proposed changes can be implemented.
+Uniswap's on-chain voting mechanism ensures transparency, immutability, and tamper-proof decision-making. All voting activities and results are recorded on the Ethereum blockchain, making them publicly verifiable. This transparency fosters trust within the community and provides a clear audit trail of governance decisions.
+Through the voting mechanism, Uniswap enables a decentralized governance process where the collective voice of the token holders shapes the protocol's direction. It emphasizes inclusivity, giving stakeholders the opportunity to express their opinions, contribute to discussions, and influence the platform's development.
+By actively involving UNI token holders in the decision-making process, Uniswap strives to create a platform that aligns with the interests and needs of its community, fostering a vibrant and dynamic ecosystem within the decentralized finance (DeFi) space.
     """)
 
 # Daily Number of Distinct Miners Before and After Shanghai Update
