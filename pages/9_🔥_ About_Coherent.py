@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 
 # Layout
-st.set_page_config(page_title='Russia Ukraine Conflict',
+st.set_page_config(page_title='About Coherent',
                    page_icon=':bar_chart:📈', layout='wide')
 st.title(' Coherent Flaws and Cons 📑 ')
 

@@ -118,43 +118,43 @@ Despite the fact that DAOs are still in their infancy, Nouns has demonstrated th
 if Collection == 'Weekly':
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Block Before and After Shanghai Update')
+                 title='Weekly Vote Weight Based On Supporter ')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Block')
+                      yaxis_title='NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Recenct Proposal Vote Based On Supporter ')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Weekly Vote Weight Based On Proposals IDs')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 elif Collection == 'Daily':
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Block Before and After Shanghai Update')
+                 title='Daily Vote Weight Based On Supporter')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Block')
+                      yaxis_title='NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3.tail(200), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Recent Proposal Vote Based On Supporter')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Weekly Vote Weight Based On Proposals IDs')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
@@ -203,9 +203,9 @@ Despite the fact that DAOs are still in their infancy, Nouns has demonstrated th
 
 # Daily Number of Distinct Miners Before and After Shanghai Update
 fig = px.bar(df3.tail(250), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
-             title='Daily Number of Distinct Miners Before and After Shanghai Update')
+             title='Each Proposal Vote Based On Supporter')
 fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title='Daily Number of Miners')
+                  yaxis_title='NUMBER OF VOTES')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 #####################################################
 

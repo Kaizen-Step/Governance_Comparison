@@ -90,7 +90,7 @@ st.write("""
 
 In this dashboard, we compare the governance structures of three protocols, namely nouns, uniswap, and compound, using the Coherent  ETHEREUM_DATASET_RAW_DECODED_AND_ENRICHED Data Sets tables. 
 For the Nouns governance investigation, we used the 'ENRICHED.DECODED.DECODED_LOGS' table of the Coherent Enriched data set with the contract address '0x6f3E6272A167e8AcCb32072d08E0957F9c79223d' and the 'HASHABLE_SIGNATURE' of this table to filter each different functionality of this contract. First, we looked up the proposal using the "ProposalCreated" function, then we looked at "ProposalExecuted" and "ProposalCanceled" to see what happened to these proposals, and finally, using the "VoteCast" function, we totaled up all the votes that each proposal received. For Uniswap governance, the governance contract address changed over time, so we included addresses from the beginning to the present (such as "0xc4e172459f1e7939d522503b81afaac1014ce6f6" and "0xeCa491E162d157760F167c4DD92b45AE6E5Cf0f1") and investigated all of them in the same table.
- The Coherent tables also contained the description of the proposal and reasons for each vote. Finally, using these data sets, we compare the governance metrics across the three platforms, including the number of proposals, votes, addresses, and the outcomes of each proposal over time.
+ The Coherent tables also contained the description of the proposal and reasons for each vote. Finally, using these data sets, we compare the governance metrics across the three platforms, including the number of proposals, votes, addresses, and the outcomes of each proposal over time. Timestamps were taken from "ENRICHED.DECODED.DECODED_BLOCKS" tables and combined with the results of the block hash queries in all of the queries.
 """)
 
 
@@ -110,7 +110,7 @@ st.text(" \n")
 c1, c2 = st.columns(2)
 with c1:
     st.info(
-        '**Twitter:  [Ludwig.1989](https://flipsidecrypto.xyz/)**', icon="🕊️")
+        '**Twitter:  [Ludwig.1989](https://twitter.com/Ludwig_1989/status/1658167561622626304)**', icon="🕊️")
     st.info(
         '**Project Supervisor:  [MetricsDao](https://github.com/Kaizen-Step/Russia_Ukraine_Conflict)**', icon="👨🏻‍💼")
 
