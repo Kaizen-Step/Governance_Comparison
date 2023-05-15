@@ -12,7 +12,9 @@ st.info("""
 I will provied my exprience using Coherent Raw tables by snowflake, flaws and cons. 
 """)
 
-st.image(Image.open('Images/Coherent.png'))
-st.text(" \n")
-st.text(" \n")
 st.image(Image.open('Images/Github.jpg'))
+
+st.text(" \n")
+st.text(" \n")
+st.image(Image.open('Images/Coherent.png'))
+

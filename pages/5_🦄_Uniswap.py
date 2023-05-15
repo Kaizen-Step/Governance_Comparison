@@ -136,7 +136,7 @@ if Collection == 'Weekly':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df3.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Recent Propsal Based On Supporters')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='Weekly NUMBER OF VOTES')
@@ -163,7 +163,7 @@ elif Collection == 'Daily':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df3.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Daily Number of Distinct Miners Before and After Shanghai Update')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='VOTES Power')
