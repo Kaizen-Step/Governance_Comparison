@@ -1,0 +1,526 @@
+TIMESTAMP,PROPOSER,PROPOSAL_ID,PROPOSAL_DESCRIPTION,PROPOSAL_STATUES
+2021-03-25T15:58:35Z,0xd122638eca5bb644591fe660fce0b85e2ab6186a,42,"# Migration to Governor Bravo
+
+",Executed
+2021-03-14T22:25:55Z,0x54a37d93e57c5da659f508069cf65a381b61e189,41,"# Legacy market migration: WBTC
+",Executed
+2021-03-10T01:22:07Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,40,"# Compound Grants Program
+",Executed
+2021-03-03T01:32:35Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,39,"# ZRX, BAT, and WBTC Parameter Update
+
+",Executed
+2021-02-11T20:54:06Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,38,"# Adjust BAT, ZRX collateral factors
+",Defeated
+2021-02-09T04:42:54Z,0x54a37d93e57c5da659f508069cf65a381b61e189,37,"# Return Accidentally Sent Funds
+",Executed
+2021-02-02T00:21:25Z,0x05c55b58b044342e89c343d2d6d53c08d26500bb,36,"# Set WBTC Collateral Factor to 75%
+",Executed
+2021-01-09T01:26:48Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,35,"# COMP Speed Recalibration
+",Executed
+2020-12-21T23:42:06Z,0x54a37d93e57c5da659f508069cf65a381b61e189,34,"# Semi-Permanent Gas Saving Measures for the DAI Market
+",Executed
+2020-12-21T22:15:41Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,33,"# Remove automatic COMP claims and COMP speed refresh
+",Executed
+2020-12-11T21:17:06Z,0x2f04664b18fb9b6d49124fcc876b52a4ba797718,32,"# Distribute COMP to Affected Users in the DAI Liquidations
+
+",Defeated
+2020-12-07T21:48:16Z,0x54a37d93e57c5da659f508069cf65a381b61e189,31,# Adjusting Reserve Factors,Executed
+2020-12-05T23:13:06Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,30,"# COMP Contributor Grants
+## Summary
+
+The [Compound Comptroller contract](https://etherscan.io/address/0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b) has a reserve of of over 100,000 COMP and growing. This proposal adds the ability for the Compound protocol to send this COMP to a particular user or group, selected by a governance vote. The functionality has two components:
+1. `_grantComp`: An ability for Governance to pay a particular amount of COMP to a specific address
+2. `_setContributorCompSpeed`: An ability for Goverance to _stream_ a grant to a participant.
+An in-depth description of the changes can be found in [this forum post](https://www.comp.xyz/t/compound-contributor-grants/756) and the linked documents. We're looking forward to continuing the conversation on the forums.
+Besides adding this functionality, we also:
+1. Remove code from the Comptroller to reduce its size (making room for the changes mentioned above)
+2. Award ourselves a COMP grant (1000 COMP) to offset development and audit costs.
+
+## References
+* [comp.xyz Forum post](https://www.comp.xyz/t/compound-contributor-grants/756)
+* [Audit, by Quantstamp](https://certificate.quantstamp.com/full/compound-protocol)
+* [Development Specification](https://www.notion.so/PUBLIC-Compound-vesting-specification-b52d1c6b3bc24f53b693ebe88d0c836f)
+* [Pull request on Github](https://github.com/compound-finance/compound-protocol/pull/79)",Executed
+2020-11-09T21:29:04Z,0x54a37d93e57c5da659f508069cf65a381b61e189,29,"# Delegate UNI 2
+Proposal 28 was canceled due to an accidental drop in the proposer's delegations. This proposal is a new version of proposal 28.
+
+This proposal acts to delegate the cUNI market liquidity to the community multisig. The community multisig will vote according to the consensus reached by cUNI holders but reserves the right to disqualify any manipulation used to gain an advantage in off-chain voting. Additionally, if a 10% quorum is not reached, the multisig will not vote. View [this discussion](https://www.comp.xyz/t/setup-community-cuni-voting/440) for more context. Off-chain voting will occur [here](https://cuni.comp.vote).
+
+The last two calls distribute a bounty of $1200 worth of SAI from reserves to Arr00 for setting up the cUNI voting system.
+
+The Multi-Sig requires 4-of-6 signers to approve any transaction. The signer addresses can be seen [here on Gnosis Safe](https://gnosis-safe.io/app/#/safes/0xbbf3f1421D886E9b2c5D716B5192aC998af2012c/settings), and currently include @aaaaaaaaaaaaa, @arr00, @blck, Compound Labs, Dharma Labs (@0age), and @jared. For full context and history on the Multi-Sig, please see [this post](https://www.comp.xyz/t/community-multisig-4-of-6-deployment/134) on the Compound Community Forum.",Executed
+2020-11-02T00:49:47Z,0x14ee59975f7ee3a6ab8e9bc81a7e634fa66285b4,28,"# Delegate UNI
+This proposal delegates the cUNI market liquidity to the community multisig. The community multisig will vote in Uniswap proposals according to the will of the cUNI holders, expressed through off-chain voting conducted [here](http://cuni.comp.vote). The multisig reserves the right to disqualify any manipulation used to gain an advantage in off-chain voting and will only vote if a 10% quorum is reached. Read the [discussion](https://www.comp.xyz/t/setup-community-cuni-voting/440) for more context.
+
+The last two calls distribute a bounty of $1200 worth of SAI from reserves to Arr00 for setting up the cUNI voting system.
+
+The Multi-Sig requires 4-of-6 signers to approve any transaction. The signer addresses can be seen [here on Gnosis Safe](https://gnosis-safe.io/app/#/safes/0xbbf3f1421D886E9b2c5D716B5192aC998af2012c/settings), and currently include @aaaaaaaaaaaaa, @arr00, @blck, Compound Labs, Dharma Labs (@0age), and @jared. For full context and history on the Multi-Sig, please see [this post](https://www.comp.xyz/t/community-multisig-4-of-6-deployment/134) on the Compound Community Forum.",Canceled
+2020-10-12T17:18:10Z,0x54a37d93e57c5da659f508069cf65a381b61e189,27,"# Add COMP Support
+This proposal adds Compound as a supported asset.
+
+The cCOMP contract was deployed using existing, proven code. The implementation contract is the same contract as the cUNI implementation contract.
+
+cCOMP uses a new [JumpRateModelV2](https://etherscan.io/address/0xd956188795ca6f4a74092ddca33e0ea4ca3a1395) interest rate model with the following parameters:
+- 2% APY borrow base rate
+- 20% APY borrow rate at kink
+- Kink at 80% utilization
+- 100% APY borrow rate at 100% utilization
+
+The collateral factor for cCOMP is set to 60% and the reserve factor is set to 20%. A borrowing cap of 50k COMP is set as well.
+
+[Discussion](https://www.comp.xyz/t/adding-comp-as-an-asset/470)",Executed
+2020-10-08T22:18:40Z,0x54a37d93e57c5da659f508069cf65a381b61e189,26,"# Uniswap Improvement Strategy
+We saw unexpected demand for the Uniswap market and the pre-set Borrowing Cap quickly reached its limit; this proposal increases the borrow cap to 5M UNI and sets the Borrow Cap Guardian to the Community Multi-Sig which allows for rapidly setting new borrow caps if needed (Read about Multi-sig below).
+
+Additionally, this proposal sets a new [interest rate model](https://etherscan.io/address/0xd88B94128Ff2B8Cf2d7886cd1C1E46757418cA2A#code) for cUNI using the following parameters:
+- 2% base rate
+- 30% borrow rate at kink
+- Kink at 80%
+- 150% borrow rate at 100% utilization
+- Owner is Timelock (0x6d903f6003cca6255D85CcA4D3B5E5146dC33925)
+![InterstrateModel](https://i.imgur.com/1qAHoKb.png)
+
+
+The Multi-Sig requires 4-of-6 signers to approve any transaction. The signer addresses can be seen [here on Gnosis Safe](https://gnosis-safe.io/app/#/safes/0xbbf3f1421D886E9b2c5D716B5192aC998af2012c/settings), and currently include @aaaaaaaaaaaaa, @arr00, @blck, Compound Labs, Dharma Labs (@0age), and @jared. For full context and history on the Multi-Sig, please see [this post](https://www.comp.xyz/t/community-multisig-4-of-6-deployment/134) on the Compound Community Forum.",Executed
+2020-09-29T01:31:36Z,0x8169522c2c57883e8ef80c498aab7820da539806,25,"# Add UNI Support
+This proposal adds [Uniswap](https://etherscan.io/token/0x1f9840a85d5af5bf1d1762f925bdaddc4201f984) as a supported asset, and implements an updated [Open Price Feed](https://compound.finance/docs/prices) view contract that supports cUNI.
+
+## Market Parameters
+Uniswap is a widely distributed token, with significant on-chain and off-chain liquidity. However, as a new market, it is being introduced with conservative parameters; a *Collateral Factor* equal to ZRX and BAT (which are both less liquid, smaller market cap tokens), a lower *Reserve Factor* of 20%, and a *Borrowing Cap* of 2,000,000 UNI.
+
+The UNI market uses the same interest rate model as USDT, with an upper bound of 30% APY at 100% utilization.
+
+## Contracts
+cUNI is an upgradable cToken contract that has been modified with a single new function; the ability to *Delegate* the UNI held inside the contract to an address specified by Governance. This will allow Compound Governance to participate in Uniswap Governance. Initially, UNI will be undelegated.
+
+The cUNI contract has been peer-reviewed by Compound Labs and community developers, but given the limited scope of the modifications, has not been audited by third-party professional auditors.
+
+A new Open Price Feed view contract has been deployed, which adds support for cUNI. No changes were otherwise made to the view contract.
+
+The contracts were [developed in the open](https://www.comp.xyz/t/adding-new-markets-to-compound/392), and can serve as a template for the community to launch additional markets.
+",Executed
+2020-09-27T04:34:45Z,0xdb9f80f513a3bd5ae7408484e679a1d86eee1580,24,"# Set WBTC Collateral Factor to 60%
+This change increases the Collateral Factor of WBTC from 40% to 60%.
+
+On July 14th, proposal 16 was passed to raise WBTC's Collateral Factor from 0% to 40%. According to Defi Pulse, on July 14th there were ~$100M of WBTC in circulation. Today there are ~$900M of WBTC in circulation. In addition to having a much larger supply today, WBTC liquidity has significantly grown since proposal 16 was passed. Uniswap.info shows WBTC on July 14th with a total liquidity of ~$1.15M while today it has ~$230M.
+
+With this starkly increased liquidity and demand, it makes sense to increase the WBTC collateral factor. Even with this proposed increase to 60%, the WBTC collateral factor would still be significantly under that of DAI, USDC, and ETH, which are each 75%.
+
+We agree with the arguments from proposal 16 that this change would help diversify the set of assets available to borrow on Compound. Now that WBTC has proven itself as a useful asset on Compound, passing this proposal would be a significant improvement to the Compound ecosystem.",Executed
+2020-09-16T20:58:08Z,0x7e4a8391c728fed9069b2962699ab416628b19fa,23,"# Upgrade cUSDC Interest Rate Model
+##### Summary
+Recently, Dharma built, tested, and deployed a new upgradable interest rate model contract for cDAI based on the new JumpRateModelV2. Shortly thereafter, Arr00 proposed an update to the cUSDT interest rate model that followed the new cDAI architecture. 
+
+This proposal updates the cUSDC interest rate model to a recently deployed LegacyJumpRateModelV2 with the same parameters as the current cDAI and cUSDT interest rate models:
+- 0% base rate (current 2%)
+- 4% borrow rate at kink (current no kink)
+- Kink at 80% utilization (current no kink)
+- 25% borrow rate at 100% utilization (current 12.25%)
+- Owner is Timelock (0x6d903f6003cca6255D85CcA4D3B5E5146dC33925)
+
+This proposal completes the effort of setting a standardized interest rate model for all stablecoins on Compound.
+
+The new LegacyJumpRateModelV2 is a simple refactorization of existing code and has been tested using fork simulations. The code has *not* been audited professionally due to the simplicity of the changes made.
+
+This contract was written, tested, and deployed by Arr00 and reviewed by Dharma. The proposal comes from Dharma as Arr00 does not (yet!) have sufficient COMP delegation.
+
+The last two actions take 622 Sai (currently valued at $1200) from reserves and transfer them to Arr00 as a bounty for his work on this proposal.
+
+##### Graph of proposed Interest Rate Model
+![IRM Graph](https://i.imgur.com/ehc2LLY.png)
+New [LegacyJumpRateModelV2](https://etherscan.io/address/0xd8ec56013ea119e7181d231e5048f90fbbe753c0#code)
+GitHub [PR](https://github.com/compound-finance/compound-protocol/pull/61)
+[Discussion](https://www.comp.xyz/t/update-cusdc-interest-rate-model/317)",Executed
+2020-09-08T22:27:39Z,0x54a37d93e57c5da659f508069cf65a381b61e189,22,"# New Feature: Borrow Caps
+This proposal implements a new comptroller with the “borrow caps” feature requested by the community. On each borrow, the new total borrows is checked against the borrow cap and reverts if the new total borrows is too large.
+
+The actual usage of borrow caps will come at a later date once the community understands the new feature fully. Then, it will be how to use the borrow caps and what the role of the Borrow Cap Guardian will be. 
+
+This patch has been discussed and developed in the open, reviewed by members of the community, and tested on the Kovan testnet. New scenario tests and fork simulations for the new contract were written. The new contract has been reviewed by [Open Zeppelin](https://gist.github.com/jcarpanelli/70f071bad8dfc62ff1a82bf8ed8377e1) and no major issues were found. Their recommendations were taken into account for the new comptroller deployment.
+
+The last two calls withdraw from the cSAI reserves about $5000 worth of SAI and sends it to Arr00 as a bounty for organizing and implementing this proposal.
+
+[Discussion](https://www.comp.xyz/t/governance-proposal-x-borrow-limits-comptroller-patch-renamed-to-borrow-caps/233)
+[GitHub pull request](https://github.com/compound-finance/compound-protocol/pull/42)
+
+Proposal by Arr00",Executed
+2020-08-26T20:09:33Z,0x6626593c237f530d15ae9980a95ef938ac15c35c,21,"# Reduce COMP emissions by 20%
+As COMP has grown into one of the more robustly traded and earned DeFi assets, it is time to assess emission rate. [Analysis by Gauntlet](https://www.comp.xyz/t/compound-proposal-022-systematically-reduce-emission-quantity/241) suggests that the current emission rate of 0.44 COMP / block is too high. Our aim in reducing emissions is two-fold. Firstly, we want to ensure that the protocol builds up a reserve of COMP that can be used for paying for other community needs. These needs include (but are not limited to) further security audits, funding feature development, incentivizing voters for participating, and liquidity incentivization. Secondly, we believe that the current emissions are too high to simply provide liquidity. Our analysis, combined with data from Nansen (below), illustrates that the majority of COMP goes to short-term holders and centralized exchanges.
+
+![Nansen Exchange Data](https://i.imgur.com/fv0Cq88.png)
+
+We and others believe that COMP should be used for furthering protocol development and onboarding new users to the protocol. By first lowering the emissions rate and subsequently adding COMP emission vesting, we believe that COMP can be utilized to achieve these goals.",Executed
+2020-08-16T18:48:52Z,0x54a37d93e57c5da659f508069cf65a381b61e189,20,"# Upgrade cUSDT Interest Rate Model
+Recently, Dharma led the community to release a new upgradable interest rate model contract
+for cDAI based on the new JumpRateModelV2. This proposal updates the cUSDT interest rate
+model to a recently deployed JumpRateModelV2 with the same parameters as the current cDAI
+interest rate model:
+- 0% base rate (current 2%)
+- 4% borrow rate at kink (current 22%)
+- Kink at 80% utilization (current 90%)
+- 25% borrow rate at 100% utilization (current 49%)
+This proposal begins the effort of setting a standardized interest rate model for all stablecoins
+on Compound.
+
+[New interest rate model contract](https://etherscan.io/address/0xfb564da37b41b2f6b6edcc3e56fbf523bd9f2012#code)
+
+[Discussion](https://www.comp.xyz/t/update-cusdt-interest-rate-model/170)
+
+Proposed cUSDT interest rate model:
+
+![Model](https://i.imgur.com/S5tbkRy.png)
+
+Proposal by Arr00
+",Executed
+2020-08-13T00:29:11Z,0x8169522c2c57883e8ef80c498aab7820da539806,19,"# Open Price Feed
+This proposal changes the price oracle in Compound to use the Open Price Feed deployed at [0x9b8eb8b3d6e2e0db36f41455185fef7049a35cae](https://etherscan.io/address/0x9b8eb8b3d6e2e0db36f41455185fef7049a35cae). The Open Price Feed is an [open-source project](https://github.com/compound-finance/open-oracle) where a set of reporters sign price data which is posted on-chain for use by DeFi protocols. There is no privilege required to post prices, and we encourage the community to build additional posters to keep prices up-to-date. The Compound Protocol will initially use price data from Coinbase (via the [Coinbase Oracle](https://blog.coinbase.com/introducing-the-coinbase-price-oracle-6d1ee22c7068)) as well as a time-weighted average price from Uniswap's on-chain markets to ensure price integrity.
+
+The Open Price Feed has been audited by Open Zeppelin [1](https://blog.openzeppelin.com/compound-open-price-feed-uniswap-integration-audit/) [2](https://blog.openzeppelin.com/compound-open-oracle-audit/). The system initially supports prices for BAT, WBTC, COMP, DAI, ETH, KNC, LINK, REP, SAI, USDC, USDT and ZRX. The system is compatible with support for more tokens and different reporters, both of which would require a new Governance proposal.
+
+The Open Price Feed system was [announced almost a year ago](https://medium.com/compound-finance/announcing-compound-open-oracle-development-cff36f06aad3). We envisioned the system as an easy way for different projects and exchanges to sign data without the burden of posting that data onto the Ethereum blockchain itself. Instead, the exchanges expose an HTTP endpoint with an Ethereum-signed message containing the price data. The goal is that every exchange can provide such data, which can be used by every DeFi project.
+
+In the current incarnation of the Open Price Feed, it takes the prices from Coinbase's Oracle (which was designed in coordination with the Open Price Feed) and it tests that price against a time-weighted average price (TWAP) from Uniswap v2. If the price for a given asset from Coinbase is within 20% of the Uniswap TWAP for that asset, it is posted and immediately is available for use in the Protocol (e.g. for collateral calculations). The TWAP calculation is based on the [Uniswap Oracle](https://uniswap.org/docs/v2/core-concepts/oracles/) concept.
+
+The Open Price Feed has been running in production for several weeks and has been tested on the Ropsten and Kovan test-nets. For comments and discussion, please visit [comp.xyz](https://www.comp.xyz/t/governance-proposal-019-open-price-feed/199).
+
+### References
+
+* [Open Price Feed Docs](https://compound.finance/docs/prices)
+* [Compound Prices Page](https://compound.finance/prices)
+* [Open Price Feed Contract](https://etherscan.io/address/0x9b8eb8b3d6e2e0db36f41455185fef7049a35cae)
+* [Open Price Feed Data Storage Contract](https://etherscan.io/address/0xc629c26dced4277419cde234012f8160a0278a79)
+* [Open Zeppelin Open Price Feed with Uniswap Audit - July 2020](https://blog.openzeppelin.com/compound-open-price-feed-uniswap-integration-audit/)
+* [Open Zeppelin Open Price Feed Audit - Feb 2020](https://blog.openzeppelin.com/compound-open-oracle-audit/)
+* Coinbase Reporter Public Key: `0xfCEAdAFab14d46e20144F48824d0C09B1a03F2BC`
+* [Coinbase Oracle Docs](https://docs.pro.coinbase.com/#oracle)
+* [Open Oracle GitHub](https://github.com/compound-finance/open-oracle)
+* [Open Price Feed Playground](https://observablehq.com/@jflatow/compound-price-feed)
+* [Manual Price Posting Page](https://app.compound.finance/prices)
+* [Aggregated Prices API](https://prices.compound.finance/)
+* [Open Price Feed Launch Discussion](https://www.comp.xyz/t/open-price-feed-live/180)
+* [Open Price Feed Development Discussion](https://www.comp.xyz/t/open-price-feed-proposal-development/52/6)
+",Executed
+2020-07-23T18:32:10Z,0x7e4a8391c728fed9069b2962699ab416628b19fa,18,"# Upgrade cDai Interest Rate Model
+## Summary
+Over the past several weeks, Dharma (in collaboration with arr00) has written and tested a new version of JumpRateModel and integrated it into an updated interest rate model for cDAI. This updated interest rate model allows for the following parameters to be updated by governance proposal (ie. no-code updates):
+
+1.  Interest Rate at 0% Utilization
+2. Interest Rate at 100% Utilization
+3. The Utilization % at which the model “kinks”
+4. Interest Rate at the “kink”
+
+We believe this model can form the basis for the interest rate models of other cAssets, including cUSDC and cUSDT, which we believe should have models of a similar nature. We encourage other community members to adapt this code to do so, and will enthusiastically support proposals to update the interest rate models of other cAssets to models of this format.
+
+This proposal was [discussed in the governance forum]([https://www.comp.xyz/t/dharma-to-submit-update-to-cdai-interest-rate-model/91](https://www.comp.xyz/t/dharma-to-submit-update-to-cdai-interest-rate-model/91)) prior to submission.
+
+## Specifics
+-  New cDAI Interest Rate Model: [Deployed Contract](https://etherscan.io/address/0xfed941d39905b23d6faf02c8301d40bd4834e27f#code)
+- New cDAI Interest Rate Model: [Github Link to PR](https://github.com/compound-finance/compound-protocol/pull/35)
+- Interest Rate Model Parameter Changes:
+  - Change APY at 100% utilization:
+    - Current: 15%
+    -  New: 25%
+  - Change the Utilization Rate that defines the “kink”:
+    - Current: 90%
+    - New: 80%
+  - Change APY at “kink”:
+    - Current: 2%
+    - New: 4%
+  - No change to Base Rate per Block *(APY at 0% utilization)*:
+    - Current: 0%
+    - New: 0%
+
+*Note: all rates are still “on top of” the DAI interest rate parameters set by MakerDAO governance.*
+
+## Image of Proposed cDAI Interest Rate Model
+![https://aws1.discourse-cdn.com/standard17/uploads/compoundcommunity/original/1X/51ac6b49e0aa2af572d633c4302e3a8586de6fba.png](https://aws1.discourse-cdn.com/standard17/uploads/compoundcommunity/original/1X/51ac6b49e0aa2af572d633c4302e3a8586de6fba.png)",Executed
+2020-07-19T12:09:22Z,0x54a37d93e57c5da659f508069cf65a381b61e189,17,"# REP Migration
+In preparation for the launch of Augur v2 (est. July 28th), the Augur team [suggested a migration timeline](https://www.comp.xyz/t/augur-migration-proposal/58) for Compound, which begins by partially deactivating cREP.
+
+This proposal prevents supplying and borrowing REPv1, and removes the incentives to maintain REPv1 inside Compound by removing the supply interest rate and COMP distribution.
+
+Users can voluntarily migrate to Augur v2 at their own pace, but as Augur v2 gets closer to a potential fork event, future proposals should take stronger steps to wind down existing cREP positions. Once Augur v2 is stable, a future proposal can create a new Compound market for it.
+
+This proposal does not introduce any new contracts.
+
+[Discussion](https://www.comp.xyz/t/augur-migration-proposal/58)",Executed
+2020-07-09T15:23:05Z,0x9695cfaa368718dd6790a6f57b633d83f565893e,16,"# Set WBTC Collateral Factor to 40%
+This change increases the Collateral Factor of [WBTC](https://compound.finance/markets/WBTC) from 0% to 40%.
+
+WBTC currently cannot be used as collateral on Compound, although it can be loaned and borrowed. This would allow users to loan WBTC while using 40% of its value as collateral.
+
+DAI, USDC, and ETH each already have a Collateral Factor of 75%. BTC, and thus WBTC, has greater market liquidity than any of those and comparable market volatility to ETH, and so warrants a similar Collateral Factor.
+
+Because this is increasing a Collateral Factor it cannot trigger any liquidations.
+
+This proposal makes no changes beyond setting the Collateral Factor of WBTC to 40%.
+
+[Prior discussion](https://compound.comradery.io/post/1627) has generally endorsed this idea but mentioned the risk of large amounts of WBTC minting. We appreciate that risk but believe it to be very low. More importantly, this risk already exists on Compound, between USDC and DAI. Given that the incentive structure has resulted in very large amounts of DAI being borrowed and loaned on the platform, we believe that adding more diversity to the set of usable collateral will decrease rather than increase the structural risk to the platform by moving some usage away from DAI and towards WBTC.
+
+We believe this change is justified and appropriate. We also think that it will help to diversify the set of assets available to borrow on Compound.
+
+We originally proposed this change with a collateral factor of 65%. In response to community feedback, we are resubmitting with a collateral factor of 40%. We are grateful to the Compound community for the prompt and thoughtful responses to our first proposal. We understand the worries that many have, and while we supported (and still do support) taking the collateral factor up to 65% we completely respect the worries that many have with doing so. As such we hope that instead taking the collateral factor to 40%--well above 0 but lower than any other lendable asset on the platform--might be a middle ground.",Executed
+2020-07-08T20:04:01Z,0x54a37d93e57c5da659f508069cf65a381b61e189,15,"# Changing SAI collateral factor to 0%
+The Compound community committed to a process of deprecating SAI, by reducing the Collateral Factor each week. To reduce governance complexity during the COMP Distribution launch, weekly SAI proposals were skipped. This proposal completes the process, by reducing SAI's Collateral Factor to 0%.
+
+
+**Collateral Factor**
++ Current Collateral Factor 35%
++ Proposed Collateral Factor 0%
+
+Going from 35% to 0% with the current market prices **would cause** some liquidations on the analyzed accounts.
+
+**Analysis**
+
+![Analysis](https://i.imgur.com/mB1SY15.png)
+
+
+(The list does not contain accounts that hold less than 50 SAI)
+
+[Analyzed accounts](https://i.imgur.com/mB1SY15.png)
+
+[Forum discussion](https://compound.comradery.io/post/1600)",Executed
+2020-07-05T18:29:49Z,0x9695cfaa368718dd6790a6f57b633d83f565893e,14,"# Set WBTC Collateral Factor to 65%
+This change increases the Collateral Factor of [WBTC](https://compound.finance/markets/WBTC) from 0% to 65%.
+
+WBTC currently cannot be used as collateral on Compound, although it can be loaned and borrowed. This would allow users to loan WBTC while using 65% of its value as collateral.
+
+DAI, USDC, and ETH each already have a Collateral Factor of 75%. BTC, and thus WBTC, has greater market liquidity than any of those and comparable market volatility to ETH, and so warrants a similar Collateral Factor.
+
+Because this is increasing a Collateral Factor it cannot trigger any liquidations.
+
+This proposal makes no changes beyond setting the Collateral Factor of WBTC to 65%.
+
+[Prior discussion](https://compound.comradery.io/post/1627) has generally endorsed this idea but mentioned the risk of large amounts of WBTC minting. We appreciate that risk but believe it to be very low. More importantly, this risk already exists on Compound, between USDC and DAI. Given that the incentive structure has resulted in very large amounts of DAI being borrowed and loaned on the platform, we believe that adding more diversity to the set of usable collateral will decrease rather than increase the structural risk to the platform by moving some usage away from DAI and towards WBTC.
+
+We believe this change is justified and appropriate. We also think that it will help to diversify the set of assets available to borrow on Compound.",Defeated
+2020-07-05T05:10:55Z,0x9695cfaa368718dd6790a6f57b633d83f565893e,13,"# Set WBTC Collateral Factor to 65%
+This change increases the Collateral Factor of [WBTC](https://compound.finance/markets/WBTC) from 0% to 65%.
+
+WBTC currently cannot be used as collateral on Compound, although it can be loaned and borrowed. This change would allow users to loan WBTC while using 65% of its value as collateral.
+
+DAI, USDC, and ETH each already have a Collateral Factor of 75%. BTC, and thus WBTC, has greater market liquidity than any of those and comparable market volatility to ETH, and so warrants a similar Collateral Factor.
+
+Because this is increasing a Collateral Factor it cannot trigger any liquidations.
+
+This proposal makes no changes beyond setting the Collateral Factor of WBTC to 65%.
+
+[Prior discussion](https://compound.comradery.io/post/1627) has generally endorsed this idea but mentioned the risk of large amounts of WBTC minting. We appreciate that risk but believe it to be very low. More importantly, this risk already exists on Compound, between USDC and DAI. Given that the incentive structure has resulted in very large amounts of DAI being borrowed and loaned on the platform, we believe that adding more diversity to the set of usable collateral will decrease rather than increase the structural risk to the platform by moving some usage away from DAI and towards WBTC.
+
+We believe this change is justified and appropriate. We also think that it will help to diversify the set of assets available to borrow on Compound.",Canceled
+2020-07-01T18:14:53Z,0x7e4a8391c728fed9069b2962699ab416628b19fa,12,"# Update cDAI Interest Rate Model
+## Summary
+Eight days ago, we [proposed decoupling the cDAI interest rate model from MCD parameters](https://compound.comradery.io/post/1758). While we received positive feedback regarding the updating of cDAI interest rate model, the community also clearly indicated a reticence to decouple from MCD at this time. As a result, we are proposing an updated cDAI interest rate model, but this model does not decouple from MCD. We intend to continue to iterate on the model over the coming months.
+
+
+## Updated Model
+- [Deployed contract](https://etherscan.io/address/0xdf44fd0dc991c41ba87812441f98902df2df5786#code)
+- [Pull request](https://github.com/compound-finance/compound-protocol/pull/31)
+
+
+## Interest Rate Model Updates
+We are proposing the following changes to the cDAI interest rate model:
+
+**1. Change APY at 100% util**
+- Current: 15%
+- New: 25%
+
+
+**2. Change the Utilization Rate that defines the ""kink""**
+- Current: 90%
+- New: 80%
+
+
+**3. Change `gapPerBlock`, the parameter that determines the ""slope"" prior to the kink**
+- Current: 2%
+- New: 4% *(**note:** with current SF / DSR,  this gives an APY of 4.34% at the kink)*
+
+
+**4. No change to Base Rate per Block (APR at 0% utilization)**
+- Current: 0%
+- New: 0%
+
+
+## Rationale for the Changes
+**Change 1: Increase APY at 100% Utilization**
+
+When a Compound asset is 100% utilized, suppliers are unable to withdraw their capital, and new borrowers cannot take on loans. This is extremely suboptimal, and should be reflected by handsome compensation to suppliers. In our view, 15% APY is not sufficiently high to achieve rapid asset re-allocation in a 100% utilization scenario, nor does it accurately reflect the lockup that suppliers experience. As such, we propose raising this parameter to 25% APY.
+
+
+**Change 2: Change the Utilization Rate that Defines the ""Kink""**
+
+The ""kink"" in the cDAI interest rate model reflects the utilization rate at which the slope of the interest rate goes from ""gradual"" to ""steep"". That is, below this utilization rate, the slope of the interest rate curve is gradual. Above this utilization rate, it is steep.
+
+
+Because of this dynamic between the interest rate curves before and after the ""kink"", the ""kink"" can be thought of as the target utilization rate. Above that rate, it quickly becomes expensive to borrow (and commensurately lucrative for suppliers).
+
+
+In our view, 90% Utilization should not be the target utilization. This would mean that the protocol aims to only allow 10% of capital suppliers to exit the system at any given time. In our opinion, this is insufficient. We suggest that a greater portion of the capital suppliers should be able to exit at any time, and as such propose lowering the utilization rate that defines the ""kink"" to 80%.
+
+
+**Change 3: Change APY at ""Kink""**
+
+As we said in Change 3, the ""kink"" defines the target utilization of the market. Thus, the interest rate at the kink is the target interest rate. And in our view, 2% APY is too low to be the current ""target interest rate"". We approach the question of ""what is the right target interest rate?"" with humility. We honestly don't know. As such, we decided to approach searching for the ideal rate by doubling it, and then adjusting based on further market indications. We hope to see market indications that suggest that the curve is ""in range"". Should these indications materialize, changes to the parameter can become more incremental.
+
+
+**No Change to Base Rate per Block**
+
+In our view, it is appropriate to set the interest rate at 0% when there is no utilization of the asset. At zero utilization, the market is indicating that borrowing that asset is not attractive. Increasing the interest rate would only exacerbate the unattractiveness of borrowing the asset. As such, we left this parameter unchanged.",Defeated
+2020-06-28T02:13:09Z,0x8169522c2c57883e8ef80c498aab7820da539806,11,"# COMP Distribution Patch
+This proposal implements a new Comptroller contract, patching the [refreshCompSpeeds](https://compound.finance/docs/comptroller#refresh-comp-speeds) function.
+
+It modifies the allocation of COMP across markets, by removing the borrowing interest rate as a weighting mechanism. Each market is allocated COMP relative to borrowing demand; the allocation is then split equally between suppliers and borrowers.
+
+The function has also been updated to require an external account (not a smart contract), reducing the risk of griefing.
+
+This patch has been [discussed](https://compound.comradery.io/post/1769) and [developed in the open](https://github.com/compound-finance/compound-protocol/pull/29), reviewed by members of the community, and tested on Ethereum’s Kovan and Ropsten testnets. Given the limited scope of changes, *it has not been reviewed by professional auditors*.",Executed
+2020-06-22T23:18:57Z,0x54a37d93e57c5da659f508069cf65a381b61e189,10,"# Adjusting COMP distribution speed to match Ethereum network block time and increasing higher-risk assets Reserve Factor
+Compound distribution system expects 15 second block time on the Ethereum network, while in reality, this is 13.1~ second average https://etherscan.io/chart/blocktime
+
+* Current speed 0.5 COMP / block
+* Proposed speed 0.44 COMP / block
+
+This will decrease the current 3,297~ / day distributed COMP to the expected level 2,880~ COMP / day.
+
+
+#### Reserve factor for BAT, REP, and ZRX
+
+* Proposed Reserve Factor 50%
+
+This is an extreme situation caused by the COMP distribution. Currently, these assets are preferred for those who farming COMP,
+these carry high liquidation risk against the protocol; therefore increasing their Reserve Factor is needed to ensure the protocol safety.
+[discussion about this.](https://compound.comradery.io/post/1762)
+
+[Forum](https://compound.comradery.io/post/1763)",Executed
+2020-06-18T18:10:01Z,0x7e4a8391c728fed9069b2962699ab416628b19fa,9,"#  Set reserve factor for cUSDT to 20.0%
+In a [recent proposal](https://compound.finance/governance/proposals/8), blck proposes raising the Reserve Factor on USDT from 0% to 10%. We support blck's proposal because we agree that the Reserve Factor needs to increase. But we do not think Proposal 8 goes far enough. We propose raising the Reserve Factor to 20% (from either 0% if blck's proposal fails, or 10% if it succeeds).
+
+**Background on Reserve Factor**
+
+The Reserve Factor in Compound is the parameter that controls how much of the interest for a given asset is routed to that asset's Reserve Pool. The Reserve Pool protects lenders against borrower default and liquidation malfunction. For example, a 5% Reserve Factor means that 5% of the interest that borrowers pay for that asset would be routed to the Reserve Pool instead of to lenders.
+
+
+Thus, as a market grows, it is important that the Reserve Pool grow commensurately in order to adequately protect lenders.
+
+**Why 10% is too low for USDT's Reserve Factor**
+
+We believe there are two reasons for raising the Reserve Factor to 20% (vs. 10%).
+
+
+As has been discussed at length in the Compound Discord's [#governance channel](https://discord.com/channels/402910780124561410/682253201701208169), the USDT market is being manipulated by COMP token harvesters, taking advantage of the interest rate model of USDT to generate COMP for themselves. A 20% Reserve Factor will remove 20% of the incentive, reducing the ""earned interest"" for lenders and thus their incentive to game the system.
+
+
+In the long-run, it's likely that 20% is too high to be sustainable. But we believe that it will rapidly address the incentive gaming currently taking place, and if 20% does end up being too draconian, we will address that by reducing the Reserve Factor in the future.",Executed
+2020-06-17T23:51:04Z,0x54a37d93e57c5da659f508069cf65a381b61e189,8,"# Increase USDT Reserve Factor from 0% to 10%
+Currently, USDT is the only market on Compound with 0% reserve; previously, we discussed that this should be changed, the market rapid growth requires changes to provide safe lending to the users.",Executed
+2020-06-11T02:13:31Z,0x8b8592e9570e96166336603a1b4bd1e8db20fa20,7,"# Distribute COMP to Users
+This proposal activates the continuous distribution of COMP to all users of the protocol, [announced on May 27th, 2020](https://medium.com/compound-finance/expanding-compound-governance-ce13fcd4fe36).
+
+Every Ethereum block, `0.50` COMP will be distributed across ETH, DAI, USDC, USDT, BAT, REP, WBTC and ZRX markets, proportional to the interest being accrued in the market; as conditions evolve, the allocation between markets is updated by invoking the *refreshCompSpeeds* function. Within each market, half of the COMP is allocated to suppliers, and the other half to borrowers.
+
+Whenever an address interacts with a Compound market, it receives all COMP earned in that market, should it exceed a `0.001` COMP threshold. Users can collect all COMP, across all markets, by invoking the *claimComp* function.
+
+This proposal implements a new Comptroller contract, which has been publicly tested on the Kovan testnet, and reviewed by [OpenZeppelin](https://blog.openzeppelin.com/compound-comp-distribution-system-audit/) and Compound Labs.",Executed
+2020-06-08T15:45:30Z,0x54a37d93e57c5da659f508069cf65a381b61e189,6,"# Changing SAI collateral factor to 35%
+Weekly reduction of SAI collateral factor.
+
+**Collateral Factor**
+
+Going from 45% to 35% with the current market prices **would cause** nine liquidations on the analyzed accounts.
+
+
+![Analysis](https://i.imgur.com/l0ajQiI.png)
+
+
+(The list does not contain accounts that hold less than 50 SAI)
+
+[Analyzed accounts](https://i.imgur.com/l0ajQiI.png)
+
+[Forum discussion!](https://compound.comradery.io/post/1600)",Executed
+2020-06-01T09:13:47Z,0x54a37d93e57c5da659f508069cf65a381b61e189,5,"# Changing SAI collateral factor to 45%
+Weekly reduction of SAI collateral factor.
+
+**Collateral Factor**
+
+Going from 55% to 45% with the current market prices **would cause** four liquidations on the analyzed accounts.
+
+
+**Analysis**
+
+There is a new field added ""loss due liquidation"" calculates a potential loss for accounts that would be liquidated caused by the collateral factor change.
+
+![Analysis](https://i.imgur.com/pS2aeFh.png)
+
+
+(The list does not contain accounts that hold less than 50 SAI)
+
+[Analyzed accounts](https://i.imgur.com/pS2aeFh.png)
+
+[Forum discussion!](https://compound.comradery.io/post/1600)",Executed
+2020-05-22T17:44:04Z,0x54a37d93e57c5da659f508069cf65a381b61e189,4,"# Changing SAI collateral factor to 55%
+Following a community discussion, there was widespread consensus to decrease the collateral factor of SAI by 10% per week. The [first](https://compound.finance/governance/proposals/3) proposal in this topic was successfully executed; this proposal continues the gradual deprecation of the SAI, by reducing the collateral factor from 65% to 55%.
+
+
+**Collateral Factor**
+
+Going from 65% to 55% with the current market prices **would cause** two small liquidations on the analyzed accounts.
+
+![Analysis](https://i.imgur.com/KIuG5E2.png)
+
+
+(The list does not contain accounts that hold less than 50 SAI)
+
+[Analyzed accounts](https://i.imgur.com/KIuG5E2.png)
+
+[Forum discussion!](https://compound.comradery.io/post/1600)",Executed
+2020-05-14T16:34:24Z,0x54a37d93e57c5da659f508069cf65a381b61e189,3,"# Changing SAI reserve factor to 100% and collateral factor to 65%
+This is the first proposal that intent to slowly close the SAI market, following this there will likely be recurring proposals to continue lower the collateral factor.
+
+### **Reserve Factor**
+
+SAI suppliers will no longer receive interest, this ensures that users will no longer be motivated to keep their SAI and start migrating.
+
+### **Collateral Factor**
+
+Lowering the collateral factor will put pressure on borrowers that use SAI as collateral.
+Going from 75% to 65% with the current market prices **would not cause** any liquidation on the analyzed accounts.
+
+![Analysis](https://i.imgur.com/XLOPjQ1.png)
+
+
+(The list does not contain accounts that hold less than 50 SAI)
+
+[Analyzed accounts](https://i.imgur.com/XLOPjQ1.png)
+
+[Forum discussion](https://compound.comradery.io/post/1600)
+",Executed
+2020-04-27T20:09:05Z,0x7e4a8391c728fed9069b2962699ab416628b19fa,2,"# Update DAI Interest Rate Model to Better Accommodate Zero Stability Fee
+## Proposal Summary
+In this Compound Improvement Proposal, we propose a new interest rate model for Dai. We believe this new interest rate model provides a better user experience to capital suppliers, with minimal impact to borrowers.
+
+## Context
+When the DAI interest rate model was developed and deployed, the community, including the Compound team, did not anticipate the Stability Fee (SF) and Dai Savings Rate (DSR) in MakerDAO's Multi-Collateral Dai (MCD) system to be set to zero for a prolonged period of time. As a result, the current Dai interest rate model in Compound does not provide a good user experience to capital suppliers when the SF and/or DSR are zero. 
+
+## Chart of Current Interest Rate Model
+This is a chart of the current Dai interest rate model when the Dai Savings Rate is set to zero:
+
+![https://user-images.githubusercontent.com/37939117/80403543-bebc5000-888d-11ea-8e21-3d957f7282eb.png](https://user-images.githubusercontent.com/37939117/80403543-bebc5000-888d-11ea-8e21-3d957f7282eb.png)
+
+As you can see, when capital utilization is below 90%, suppliers earn practically nothing. And when capital utilization is greater than 90%, rates fluctuate wildly due to the steep slope of the post-kink part of the curve.
+
+## Proposed Interest Rate Model
+Our proposal adjusts the current model to provide a modest interest rate to capital suppliers when interest rates are below 90%. As an added benefit, when rates are greater than 90%, the interest rate volatility should decrease (slightly).
+
+![https://user-images.githubusercontent.com/37939117/80403556-c54ac780-888d-11ea-89f7-5ac073a7ac39.png](https://user-images.githubusercontent.com/37939117/80403556-c54ac780-888d-11ea-89f7-5ac073a7ac39.png)
+
+# Supporting Links
+- [Deployed `DAIInterestRateV2` contract utilized in this proposal]( https://etherscan.io/address/0x000000007675b5e1da008f037a0800b309e0c493#code)
+- [PR containing this proposal merged into `compound-finance/compound-protocol` Github repo](https://github.com/compound-finance/compound-protocol/pull/23)",Executed
+2020-04-27T02:41:52Z,0x8169522c2c57883e8ef80c498aab7820da539806,1,"# Add USDT Support
+In a September 2019 vote, users were given an opportunity to select which assets they favored adding to Compound; Maker and Tether (USDT) led the poll.
+
+This proposal adds [Tether](https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7) as a supported asset, with no collateral factor or reserve factor, and updates the Compound price feed to conservatively peg Tether to $1. By using a peg, weakness in the underlying asset won’t change collateral requirements for users borrowing Tether.
+
+The initial [interest rate model](https://etherscan.io/address/0x6bc8fe27d0c7207733656595e73c0d5cf7afae36) for Tether is a jump-rate model which ranges from 2% at 0% utilization, to 20% at 90% utilization, then jumps to 40% at 100% utilization.
+
+cUSDT is an upgradable cToken contract that has been modified to accommodate potential transfer fees in the underlying token. The cToken contract has been [reviewed by OpenZeppelin and the Compound team](https://compound.finance/security).",Executed
