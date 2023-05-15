@@ -130,28 +130,28 @@ To enhance participation and decentralization, Uniswap also introduced a delegat
 if Collection == 'Weekly':
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Block Before and After Shanghai Update')
+                 title='Weekly Vote Weight Based On Supporter')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Block')
+                      yaxis_title='Weekly VOTES Power')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3.tail(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Recent Propsal Based On Supporters')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='Weekly NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Weekly Vote Weight Based On Proposal IDs')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='VOTES Power')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
+                 title='Weekly Number of Adresses Based On Supporters')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='NUMBER OF Adresses')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 elif Collection == 'Daily':
@@ -159,20 +159,20 @@ elif Collection == 'Daily':
     fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Daily Block Before and After Shanghai Update')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Block')
+                      yaxis_title='Daily VOTES Power')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3.tail(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Daily Number of Distinct Miners Before and After Shanghai Update')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='VOTES Power')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
                  title='Daily Number of Distinct Miners Before and After Shanghai Update')
     fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily Number of Miners')
+                      yaxis_title='Daily VOTES Power')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
@@ -223,7 +223,7 @@ By actively involving UNI token holders in the decision-making process, Uniswap 
 fig = px.bar(df3.tail(250), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
              title='Daily Number of Distinct Miners Before and After Shanghai Update')
 fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title='Daily Number of Miners')
+                  yaxis_title='VOTES Power')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 #####################################################
 
