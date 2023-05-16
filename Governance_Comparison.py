@@ -74,7 +74,9 @@ In this dashboard, we compare the governance structures of three protocols, name
 First, we looked up the proposal using the "ProposalCreated" function, then we looked at "ProposalExecuted" and "ProposalCanceled" to see what happened to these proposals, and finally, using the "VoteCast" function, we totaled up all the votes that each proposal received.For Uniswap governance, the governance contract address changed over time, so we included addresses from the beginning to the present (such as "0xc4e172459f1e7939d522503b81afaac1014ce6f6" and "0xeCa491E162d157760F167c4DD92b45AE6E5Cf0f1") and investigated all of them in the same table.    
 The Coherent tables also contained the description of the proposal and reasons for each vote we present them in a separate tables. Finally, using these data sets, we compare the governance metrics across the three platforms, including the number of proposals, votes, addresses, and the outcomes of each proposal over time. Timestamps were taken from "ENRICHED.DECODED.DECODED_BLOCKS" tables and combined with the results of the block hash queries in all of the queries.
 """)
+st.warning(""" The Pandas function was used to clean and reformat the data taken from Snowflake queries, which may differ from the query's original raw data [the voting results and proposal outcomes were verified with the official websites of each protocol].
 
+""")
 
 st.text(" \n")
 st.write("""   

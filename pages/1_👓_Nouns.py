@@ -84,7 +84,8 @@ st.info(""" ##### In This Nouns Governance Section you can find: ####
 #########################################################################
 st.write(""" ## Nouns System Description  """)
 
-st.write(""" This website is a new model of essential DAO (decentralized autonomous organizations), where you can even see that a communal treasury taken to the next level with governance and ownership. In this platform anyone who owns one of these tokens and holds a noun, nft, essentially gets a vote in what happens with this treasury,So if you just go to the website, which is [nouns. wtf], you can see the current auction. With the current concept of one little noun every 15 minutes, the auctions can run every day every 15 minutes, and in real time, there are 28156 Ethereum, or 50.87 million dollars, in this wallet. The only way to access this wallet because of the only through this website, so you can't go to that wallet any other way, and as you can see, there's been 294 different proposals. To put up a proposal, you need to own a certain amount of these, and you need people that are going to vote on them. You can see the votes for it, or the voice against it. You can see people that abstained; it even tells you how many votes are needed, right? So I'm showing you the broad strokes of this so you can get an understanding of what little nouns really are, which is a crowd-funded treasury that can be accessed with a crowd vote. this decentralized autonomous organization It's incredibly cool. There are really interesting opportunities to get funded for, like, literally, ideas you might have that would help this group of little nouns grow. The whole goal of the Treasury department of the group is to figure out how to grow the brand. how to grow awareness around little nouns and the things that are important to those that are in little nouns, and it was started by a founder.
+st.write(""" The Nouns website is a new model of essential DAO (decentralized autonomous organizations), where you can even see that a communal treasury has been taken to the next level with governance and ownership. On this platform, anybody who possesses a Noun, nft, and owns one of these tokens effectively has a say in what happens with the treasury. So, to view the current auction, simply visit the [nouns website ](https://nouns.wtf/). With the current concept of one little noun every 15 minutes, the auctions can run every day every 15 minutes, and in real time, there are 28156 Ethereum, or 50.87 million dollars, in this wallet. There is no other way to get to this wallet; users can only access it through this website.    
+There have been 294 different proposals to help with decision-making using this deposit. To put up a proposal, you need to own a certain amount of these, and you need people that are going to vote on them. You can see the votes for it, or the voice against it. You can see people that abstained; it even tells you how many votes are needed. Nouns is a crowd-funded treasury that can be accessed with a crowd vote.. this independent decentralized organization is truly amazing. There are some extremely intriguing chances to earn funding for, literally, any ideas you might have to expand this group of little nouns. The whole goal of the Treasury department of the group is to figure out how to grow the brand. how to grow awareness around Nouns and the things that are important to those that are in Nouns. The following charts showed that the majority of noun proposals passed and only 17% were rejected by the voters.
     """)
 
 c1, c2 = st.columns(2)
@@ -143,10 +144,9 @@ with c2:
     st.image(Image.open('Images/dao_voting2.png'))
 
 
-st.write("""  When a 'Nouns' holder votes, 1 Noun NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Nouners. In Figure 4 below, we can see that as the population of Noun holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
-The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
-The beginning of Nouns DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Nouns, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
-Despite the fact that DAOs are still in their infancy, Nouns has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
+st.write("""  When a 'Nouns' holder votes, 1 Noun NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Nouners. we can see that as the population of Noun holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
+Here is where the Nouns DAO starts. Despite the fact that holding an NFT restricts liquidity and DAOs demand more coordination than centralized entities, the value of the talented community and the initiatives that have been sponsored yield value to nouns.
+Nouns has shown the ability to tick off a number of previously challenging DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native aim, despite the fact that DAOs are still in their infancy.
     """)
 
 if Collection == 'Weekly':
@@ -179,7 +179,7 @@ elif Collection == 'Daily':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df14.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df14.head(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Recent Proposal Vote Based On Supporter')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='NUMBER OF VOTES')
@@ -229,7 +229,7 @@ elif Collection == 'Daily':
 
 st.write(""" ## Nouns Voting Results  """)
 
-st.write("""  When a 'Nouns' holder votes, 1 Noun NFT is the equivalent of one vote. Votes can be delegated to other wallets including non-Nouners. In Figure 4 below, we can see that as the population of Noun holders increases, so does voter participation. Most proposals received votes "For" the proposal, but often the votes depend on the monetary amount from the treasury.   
+st.write("""   
 The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
 The beginning of Nouns DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Nouns, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
 Despite the fact that DAOs are still in their infancy, Nouns has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
