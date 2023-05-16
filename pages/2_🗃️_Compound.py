@@ -13,7 +13,7 @@ theme_plotly = None  # None or streamlit
 # Layout
 st.set_page_config(page_title=' Compound Governance -  Ethereum After Shanghai Update',
                    page_icon=':bar_chart:📈', layout='wide')
-st.title('🧩 Compound Governance')
+st.title('🧶 Compound Governance')
 
 # Style
 with open('style.css')as f:
@@ -29,16 +29,39 @@ def get_data(query):
         return pd.read_csv('Data/Compound/Compound_Vote_Daily.csv')
     elif query == 'Compound_voted_weekly':
         return pd.read_csv('Data/Compound/Compound_Vote_Weekly.csv')
+    elif query == 'Modified_Compound_Proposal_Created':
+        return pd.read_csv('Data/Compound/Modified_Compound_Created_Table.csv')
+    elif query == 'Modified_Compound_voted_daily':
+        return pd.read_csv('Data/Compound/Modified_Compound_Vote_Daily.csv')
+    elif query == 'Modified_Compound_voted_weekly':
+        return pd.read_csv('Data/Compound/Modified_Compound_Vote_Weekly.csv')
+    elif query == 'Modified_Compound_Vote':
+        return pd.read_csv('Data/Compound/Modified_Compound_Vote_ID.csv')
     return None
 
 
 Compound_Proposal_Created_Table = get_data('Compound_Proposal_Created_Table')
 Compound_voted_daily = get_data('Compound_voted_daily')
 Compound_voted_weekly = get_data('Compound_voted_weekly')
+Modified_Compound_Proposal_Created = get_data(
+    'Modified_Compound_Proposal_Created')
+Modified_Compound_voted_daily = get_data('Modified_Compound_voted_daily')
+Modified_Compound_voted_weekly = get_data('Modified_Compound_voted_weekly')
+Modified_Compound_Vote = get_data('Modified_Compound_Vote')
+
 
 df = Compound_Proposal_Created_Table
 df2 = Compound_voted_daily
 df3 = Compound_voted_weekly
+df11 = Modified_Compound_Proposal_Created
+df111 = df11.groupby(['PROPOSAL_STATUES'])[
+    'PROPOSAL_ID'].count().reset_index()
+df112 = Modified_Compound_Proposal_Created
+df113 = df112.groupby(['PROPOSAL_STATUES'])[
+    'PROPOSER'].nunique().reset_index()
+df12 = Modified_Compound_voted_daily
+df13 = Modified_Compound_voted_weekly
+df14 = Modified_Compound_Vote
 #################################################################################################
 st.write(""" ### Compound Finance Governance ##  """)
 
@@ -66,6 +89,26 @@ The voting process is transparent and publicly verifiable, providing a high leve
 For a proposal to be implemented, it typically requires a sufficient majority of votes in favor of the proposal. Once approved, the protocol changes are executed automatically, ensuring a seamless integration of the approved updates.
 The Compound governance structure reflects the ethos of decentralization, fostering a community-driven decision-making process. By giving COMP token holders the power to participate in the protocol's governance, Compound aims to create a platform that is responsive to the needs and desires of its user base. This decentralized governance model promotes transparency, inclusivity, and the collective evolution of the protocol over time.
 """)
+
+c1, c2 = st.columns(2)
+
+with c1:
+    fig = px.pie(df111, values='PROPOSAL_ID', names='PROPOSAL_STATUES',
+                 title='Percentages of Proposal Outcome in Compound Governance')
+    fig.update_layout(legend_title=None, legend_y=0.5)
+    fig.update_traces(textinfo='percent+label', textposition='inside')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+with c2:
+    # Daily Number of Distinct Miners Before and After Shanghai Update
+    fig = px.bar(df113, x="PROPOSAL_STATUES", y="PROPOSER", color="PROPOSAL_STATUES",
+                 title='Number of Unique Proposer In Compound Proposals')
+    fig.update_layout(legend_title=None, xaxis_title=None,
+                      yaxis_title='Number of Unique Proposers')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
+st.write(""" ## Most Recent Proposal Outcome  """)
 
 
 st.table(df.head(10))
@@ -120,52 +163,67 @@ The voting power of COMP token holders is directly proportional to the number of
 
 
 if Collection == 'Weekly':
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Weekly Vote Weight Based On Supporter')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Weekly VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Recent Propsal Based On Supporters')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Weekly NUMBER OF VOTES')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Weekly Vote Weight Based On Proposal IDs')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
-                 title='Weekly Number of Adresses Based On Supporters')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='NUMBER OF Adresses')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+    c1, c2 = st.columns(2)
+
+    with c1:
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="SUPPORT",
+                     title='Weekly Vote Weight Based On Supporter')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='Weekly VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df14.head(25), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+                     title='Recent Propsal Based On Supporters')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='Weekly NUMBER OF VOTES')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+    with c2:
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
+                     title='Weekly Vote Weight Based On Proposal IDs')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
+                     title='Weekly Number of Adresses Based On Supporters')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='NUMBER OF Adresses')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 elif Collection == 'Daily':
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Block Before and After Shanghai Update')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+    c1, c2 = st.columns(2)
 
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+    with c1:
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="SUPPORT",
+                     title='Daily Block Before and After Shanghai Update')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='Daily VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df14.head(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+                     title='Daily Number of Distinct Miners Before and After Shanghai Update')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+    with c2:
+        fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
+                     title='Daily Number of Distinct Miners Before and After Shanghai Update')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='Daily VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
+                     title='Weekly Number of Adresses Based On Supporters')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='NUMBER OF Adresses')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
 # # Daily Number of Distinct Miners Before and After Shanghai Update
@@ -213,7 +271,7 @@ Through the voting mechanism, Compound aims to create a decentralized governance
     """)
 
 # Daily Number of Distinct Miners Before and After Shanghai Update
-fig = px.bar(df3.tail(250), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+fig = px.bar(df14, x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
              title='Daily Number of Distinct Miners Before and After Shanghai Update')
 fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title='VOTES Power')
