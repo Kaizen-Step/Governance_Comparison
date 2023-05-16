@@ -92,14 +92,14 @@ The Compound governance structure reflects the ethos of decentralization, foster
 
 c1, c2 = st.columns(2)
 
-with c1:
+with c2:
     fig = px.pie(df111, values='PROPOSAL_ID', names='PROPOSAL_STATUES',
                  title='Percentages of Proposal Outcome in Compound Governance')
     fig.update_layout(legend_title=None, legend_y=0.5)
     fig.update_traces(textinfo='percent+label', textposition='inside')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-with c2:
+with c1:
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df113, x="PROPOSAL_STATUES", y="PROPOSER", color="PROPOSAL_STATUES",
                  title='Number of Unique Proposer In Compound Proposals')

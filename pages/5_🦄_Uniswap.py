@@ -28,16 +28,38 @@ def get_data(query):
         return pd.read_csv('Data/Uniswap/Uni_vote.csv')
     elif query == 'Uniswao_voted_weekly':
         return pd.read_csv('Data/Uniswap/Uni_vote_Weekly.csv')
+    elif query == 'Modified_Uniswap_Proposal_Created':
+        return pd.read_csv('Data/Uniswap/Modified_Uniswap_Created_1.csv')
+    elif query == 'Modified_Uniswap_voted_daily':
+        return pd.read_csv('Data/Uniswap/Modified_Uni_vote.csv')
+    elif query == 'Modified_Uniswap_voted_weekly':
+        return pd.read_csv('Data/Uniswap/Modified_Uni_vote_Weekly.csv')
+    elif query == 'Modified_Uniswap_Vote':
+        return pd.read_csv('Data/Uniswap/Modified_Uni_vote_ID.csv')
     return None
 
 
 Uniswap_Proposal_Created = get_data('Uniswap_Proposal_Created')
 Uniswao_voted_daily = get_data('Uniswao_voted_daily')
 Uniswao_voted_weekly = get_data('Uniswao_voted_weekly')
+Modified_Uniswap_Proposal_Created = get_data(
+    'Modified_Uniswap_Proposal_Created')
+Modified_Uniswap_voted_daily = get_data('Modified_Uniswap_voted_daily')
+Modified_Uniswap_voted_weekly = get_data('Modified_Uniswap_voted_weekly')
+Modified_Uniswap_Vote = get_data('Modified_Uniswap_Vote')
 
 df = Uniswap_Proposal_Created
 df2 = Uniswao_voted_daily
 df3 = Uniswao_voted_weekly
+df11 = Modified_Uniswap_Proposal_Created
+df111 = df11.groupby(['PROPOSAL_STATUES'])[
+    'PROPOSAL_ID'].count().reset_index()
+df112 = Modified_Uniswap_Proposal_Created
+df113 = df112.groupby(['PROPOSAL_STATUES'])[
+    'PROPOSER'].nunique().reset_index()
+df12 = Modified_Uniswap_voted_daily
+df13 = Modified_Uniswap_voted_weekly
+df14 = Modified_Uniswap_Vote
 
 #################################################################################################
 st.write(""" ###  Uniswap Governance ##  """)
@@ -70,6 +92,26 @@ To enhance participation and delegation, Uniswap introduced a delegation feature
 For a proposal to be implemented, it typically requires a sufficient majority of votes in favor. Once a proposal passes, the changes are automatically executed, and the protocol is updated accordingly.
 The Uniswap governance structure emphasizes decentralization, giving the community a direct say in the platform's evolution. It aims to create an inclusive environment where stakeholders can express their opinions, contribute to discussions, and shape the future of the protocol.
     """)
+
+c1, c2 = st.columns(2)
+
+with c1:
+    fig = px.pie(df111, values='PROPOSAL_ID', names='PROPOSAL_STATUES',
+                 title='Percentages of Proposal Outcome in Compound Governance')
+    fig.update_layout(legend_title=None, legend_y=0.5)
+    fig.update_traces(textinfo='percent+label', textposition='inside')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+with c2:
+    # Daily Number of Distinct Miners Before and After Shanghai Update
+    fig = px.bar(df113, x="PROPOSAL_STATUES", y="PROPOSER", color="PROPOSAL_STATUES",
+                 title='Number of Unique Proposer In Compound Proposals')
+    fig.update_layout(legend_title=None, xaxis_title=None,
+                      yaxis_title='Number of Unique Proposers')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
+st.write(""" ## Most Recent Proposal Outcome  """)
 
 st.table(df.head(10))
 
@@ -136,23 +178,29 @@ if Collection == 'Weekly':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df14.head(20), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Recent Propsal Based On Supporters')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='Weekly NUMBER OF VOTES')
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Weekly Vote Weight Based On Proposal IDs')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
-                 title='Weekly Number of Adresses Based On Supporters')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='NUMBER OF Adresses')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
+                     title='Weekly Vote Weight Based On Proposal IDs')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+    with c2:
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
+                     title='Weekly Number of Adresses Based On Supporters')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='NUMBER OF Adresses')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 elif Collection == 'Daily':
     # Daily Number of Distinct Miners Before and After Shanghai Update
@@ -163,17 +211,28 @@ elif Collection == 'Daily':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df14.head(30), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Daily Number of Distinct Miners Before and After Shanghai Update')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-    # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df2, x="DAILY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
-                 title='Daily Number of Distinct Miners Before and After Shanghai Update')
-    fig.update_layout(legend_title=None, xaxis_title=None,
-                      yaxis_title='Daily VOTES Power')
-    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="PROPOSAL_ID",
+                     title='Weekly Vote Weight Based On Proposal IDs')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='VOTES Power')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+    with c2:
+        # Daily Number of Distinct Miners Before and After Shanghai Update
+        fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_ADRESSES", color="SUPPORT",
+                     title='Weekly Number of Adresses Based On Supporters')
+        fig.update_layout(legend_title=None, xaxis_title=None,
+                          yaxis_title='NUMBER OF Adresses')
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
 # # Daily Number of Distinct Miners Before and After Shanghai Update
@@ -220,7 +279,7 @@ By actively involving UNI token holders in the decision-making process, Uniswap 
     """)
 
 # Daily Number of Distinct Miners Before and After Shanghai Update
-fig = px.bar(df3.tail(250), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+fig = px.bar(df14, x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
              title='Daily Number of Distinct Miners Before and After Shanghai Update')
 fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title='VOTES Power')
