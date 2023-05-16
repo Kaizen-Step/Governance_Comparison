@@ -28,16 +28,38 @@ def get_data(query):
         return pd.read_csv('Data/Nouns/Noun_Vote_Daily.csv')
     elif query == 'Nouns_voted_weekly':
         return pd.read_csv('Data/Nouns/Noun_Vote_weekly.csv')
+    elif query == 'Modified_Nouns_Proposal_Created':
+        return pd.read_csv('Data/Nouns/Modified_Noun_Propsoe_Created1.csv')
+    elif query == 'Modified_Nouns_voted_daily':
+        return pd.read_csv('Data/Nouns/Modified_Noun_Vote_Daily.csv')
+    elif query == 'Modified_Nouns_voted_weekly':
+        return pd.read_csv('Data/Nouns/Modified_Noun_Vote_weekly.csv')
+    elif query == 'Modified_Noun_Vote':
+        return pd.read_csv('Data/Nouns/Modified_Noun_Vote_ID.csv')
     return None
 
 
 Nouns_Proposal_Created = get_data('Nouns_Proposal_Created')
 Nouns_voted_daily = get_data('Nouns_voted_daily')
 Nouns_voted_weekly = get_data('Nouns_voted_weekly')
+Modified_Nouns_Proposal_Created = get_data('Modified_Nouns_Proposal_Created')
+Modified_Nouns_voted_daily = get_data('Modified_Nouns_voted_daily')
+Modified_Nouns_voted_weekly = get_data('Modified_Nouns_voted_weekly')
+Modified_Noun_Vote = get_data('Modified_Noun_Vote')
+
 
 df = Nouns_Proposal_Created
 df2 = Nouns_voted_daily
 df3 = Nouns_voted_weekly
+df11 = Modified_Nouns_Proposal_Created
+df111 = df11.groupby(['PROPOSAL_STATUES'])[
+    'PROPOSAL_ID'].count().reset_index()
+df112 = Modified_Nouns_Proposal_Created
+df113 = df112.groupby(['PROPOSAL_STATUES'])[
+    'PROPOSER'].nunique().reset_index()
+df12 = Modified_Nouns_voted_daily
+df13 = Modified_Nouns_voted_weekly
+df14 = Modified_Noun_Vote
 #################################################################################################
 st.write(""" ###  Nouns Governance structure ##  """)
 
@@ -50,7 +72,7 @@ The Nouns protocol is a unique and innovative blockchain platform that revolves 
 st.info(""" ##### In This Nouns Governance Section you can find: ####
 
 * Nouns Governance structure
-* Governance outcomes
+* Most Recent Proposal Outcome
 * Nouns Voting Mechanisms
 * Voting results
 
@@ -65,15 +87,28 @@ st.write(""" ## Nouns System Description  """)
 st.write(""" This website is a new model of essential DAO (decentralized autonomous organizations), where you can even see that a communal treasury taken to the next level with governance and ownership. In this platform anyone who owns one of these tokens and holds a noun, nft, essentially gets a vote in what happens with this treasury,So if you just go to the website, which is [nouns. wtf], you can see the current auction. With the current concept of one little noun every 15 minutes, the auctions can run every day every 15 minutes, and in real time, there are 28156 Ethereum, or 50.87 million dollars, in this wallet. The only way to access this wallet because of the only through this website, so you can't go to that wallet any other way, and as you can see, there's been 294 different proposals. To put up a proposal, you need to own a certain amount of these, and you need people that are going to vote on them. You can see the votes for it, or the voice against it. You can see people that abstained; it even tells you how many votes are needed, right? So I'm showing you the broad strokes of this so you can get an understanding of what little nouns really are, which is a crowd-funded treasury that can be accessed with a crowd vote. this decentralized autonomous organization It's incredibly cool. There are really interesting opportunities to get funded for, like, literally, ideas you might have that would help this group of little nouns grow. The whole goal of the Treasury department of the group is to figure out how to grow the brand. how to grow awareness around little nouns and the things that are important to those that are in little nouns, and it was started by a founder.
     """)
 
+c1, c2 = st.columns(2)
+
+with c1:
+    fig = px.pie(df111, values='PROPOSAL_ID', names='PROPOSAL_STATUES',
+                 title='Percentages of Proposal Outcome in Nouns Governance')
+    fig.update_layout(legend_title=None, legend_y=0.5)
+    fig.update_traces(textinfo='percent+label', textposition='inside')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+with c2:
+    # Daily Number of Distinct Miners Before and After Shanghai Update
+    fig = px.bar(df113, x="PROPOSAL_STATUES", y="PROPOSER", color="PROPOSAL_STATUES",
+                 title='Number of Unique Proposer In Nouns Proposals')
+    fig.update_layout(legend_title=None, xaxis_title=None,
+                      yaxis_title='Number of Unique Proposers')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
+st.write(""" ## Most Recent Proposal Outcome  """)
+
+
 st.table(df.head(10))
-
-
-# # Daily Number of Distinct Miners Before and After Shanghai Update
-# fig = px.bar(df, x="DATE", y="NUMBER_OF_MINERS", color="STATUS",
-#              title='Daily Number of Distinct Miners Before and After Shanghai Update')
-# fig.update_layout(legend_title=None, xaxis_title=None,
-#                   yaxis_title='Daily Number of Miners')
-# st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 # # Daily Number of Distinct Miners Before and After Shanghai Update
 # fig = px.area(df, x="DATE", y="DAILY_BLOCK", color="STATUS",
@@ -114,7 +149,6 @@ The beginning of Nouns DAO and DAOs in general is here.The value of the talented
 Despite the fact that DAOs are still in their infancy, Nouns has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
     """)
 
-
 if Collection == 'Weekly':
     # Daily Number of Distinct Miners Before and After Shanghai Update
     fig = px.bar(df3, x="WEEKLY", y="NUMBER_OF_VOTES", color="SUPPORT",
@@ -124,7 +158,7 @@ if Collection == 'Weekly':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df14.head(50), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Nouns Recenct Proposal Vote Based On Supporter ')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='NUMBER OF VOTES')
@@ -145,7 +179,7 @@ elif Collection == 'Daily':
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     # Daily Number of Distinct Miners Before and After Shanghai Update
-    fig = px.bar(df3.tail(200), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+    fig = px.bar(df14.tail(100), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
                  title='Recent Proposal Vote Based On Supporter')
     fig.update_layout(legend_title=None, xaxis_title=None,
                       yaxis_title='NUMBER OF VOTES')
@@ -202,7 +236,7 @@ Despite the fact that DAOs are still in their infancy, Nouns has demonstrated th
     """)
 
 # Daily Number of Distinct Miners Before and After Shanghai Update
-fig = px.bar(df3.tail(250), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
+fig = px.bar(df14.head(250), x="PROPOSAL_ID", y="NUMBER_OF_VOTES", color="SUPPORT",
              title='Each Proposal Vote Based On Supporter')
 fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title='NUMBER OF VOTES')
