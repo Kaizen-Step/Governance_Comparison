@@ -230,7 +230,7 @@ elif Collection == 'Daily':
 st.write(""" ## Nouns Voting Results  """)
 
 st.write("""   
-The DAO has funded over 140 proposals successfully using only blockchain technology. This project, which is less than a year old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
+The DAO has funded over 294 proposals successfully using only blockchain technology. This project, which is less than two years old and entirely self-funded, has gained a ton of attention for decentralized coordination, DAO execution, and a brand-new industry.
 The beginning of Nouns DAO and DAOs in general is here.The value of the talented community and the projects that have been sponsored return value to Nouns, despite the fact that holding an NFT limits liquidity and DAOs require more coordination than centralized entities.
 Despite the fact that DAOs are still in their infancy, Nouns has demonstrated the capacity to check off a number of previously difficult-to-achieve DAO-related boxes, including perpetual funding, social coordination, governance and voting, memetics, and a general crypto-native mission.
     """)
