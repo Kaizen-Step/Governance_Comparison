@@ -5,7 +5,7 @@ from PIL import Image
 # Layout
 st.set_page_config(page_title=' Governance Comparison',
                    page_icon=':bar_chart:📈', layout='wide')
-st.title(' Governance Comparison')
+st.title(' Decentralized Governances Comparison')
 st.text(" \n")
 # Content
 c1, c2, c3 = st.columns(3)
@@ -16,14 +16,14 @@ with c1:
     st.text(" \n")
     st.image(Image.open('Images/Compound8.png'))
 
-with c3:
-    st.text(" \n")
-    st.text(" \n")
-    st.image(Image.open('Images/Uniswap10.jpg'))
 with c2:
     st.text(" \n")
     st.text(" \n")
-    st.image(Image.open('Images/Voting_Mech.jpg'))
+    st.image(Image.open('Images/Uniswap10.jpg'))
+with c3:
+    st.text(" \n")
+    st.text(" \n")
+    st.image(Image.open('Images/Dao1.png'))
 
 
 st.write("""
