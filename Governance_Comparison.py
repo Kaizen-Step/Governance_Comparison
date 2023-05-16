@@ -11,16 +11,16 @@ st.text(" \n")
 c1, c2, c3 = st.columns(3)
 
 
-with c2:
-    st.text(" \n")
-    st.text(" \n")
-    st.image(Image.open('Images/Uniswap1.jpg'))
-
 with c1:
     st.text(" \n")
     st.text(" \n")
     st.image(Image.open('Images/Compound8.png'))
+
 with c3:
+    st.text(" \n")
+    st.text(" \n")
+    st.image(Image.open('Images/Uniswap10.jpg'))
+with c2:
     st.text(" \n")
     st.text(" \n")
     st.image(Image.open('Images/Voting_Mech.jpg'))
@@ -29,7 +29,7 @@ with c3:
 st.write("""
 
 
-### Blockchain Governance: What Is It, What Types Are There and How Does It Work in Practice? ###  
+### Blockchain Governance,How Does It Work in Practice? ###  
 Governance is a term that relates to decision making processes within an organization — who is responsible for what, how are major decisions being taken or implemented, is authority vested in a select few or distributed among all participants, etc. All those questions have different implications on an organization’s operational system, whether on a macro level (e.g. a decision on a new feature or goal) or on a micro level (e.g. how much is spent on marketing or who is responsible for a certain task). A successful governance model is usually what makes an organization click. Logically, there is no one-size-fits-all here — every model is situational and its viability largely depends on the specific circumstances.  While a participative democracy could work for some, having powers vested in a central authority may be preferable for others.    
 Though as diverse as they may be, exemplary governance models are often centered around a set of qualities: transparency, integrity, effective performance and collaboration. In the context of blockchain, the discussion on governance currently revolves around two sets of models: centralized vs. decentralized and on-chain vs. off-chain. The first duel is the classic blockchain paradox which calls into question contemporary authority structures. The second refers to human involvement and the extent to which decision making processes are automated. Regardless of the governance structure, matters at stake typically involve network access, funding allocation, block size, reward systems, voting and decision making (e.g. reversing transactions via a fork).[[1]](https://watsonlaw.nl/en/blockchain-governance-what-is-it-what-types-are-there-and-how-does-it-work-in-practice/)    
       
@@ -45,29 +45,23 @@ attempt to alter Noun auction cadence for the purpose of maintaining or acquirin
 make upgrades to critical smart contracts without undergoing an audit
 There are unfortunately no algorithmic solutions for making these determinations in advance (if there were, the veto would not be required), and proposals must be considered on a case by case basis.[[2]](https://nouns.wtf/)     
 
-### Compound Governance Structure  ###
-At Compound, our goal is to create financial infrastructure that applications and developers can rely on, forever. To get there, we intend to fully decentralize the Compound protocol — removing the largest single point of failure (our team), and creating an indestructible, open protocol that can evolve in entirely new ways.
-Today, we’re proud to introduce a governance system that will replace the Compound protocol’s administrator with community governance — allowing you to suggest, debate, and implement changes to Compound — without relying on, or requiring, our team whatsoever.    
+### Compound Governance a Fully Decentralized Model  ###
+At Compound, the goal is to create financial infrastructure that applications and developers can rely on, forever. To get there, they intend to fully decentralize the Compound protocol — removing the largest single point of failure (our team), and creating an indestructible, open protocol that can evolve in entirely new ways.
+Today, they’re proud to introduce a governance system that will replace the Compound protocol’s administrator with community governance — allowing you to suggest, debate, and implement changes to Compound — without relying on, or requiring, our team whatsoever.    
 Participation starts with the Compound governance token, COMP.
 In addition to being a standard ERC-20 asset, COMP allows the owner to delegate voting rights to the address of their choice; the owner’s wallet, another user, an application, or a DeFi expert. Anybody can participate in Compound governance by receiving delegation, without needing to own COMP. The token also includes code to query an address’ historical voting weight, which is useful for building complex voting systems.
-We hope that COMP can set the standard for how governance tokens operate, and our team will write an Ethereum Improvement Plan (similar to the ERC-20 standard) to accelerate decentralization for the entire ecosystem.
+they hope that COMP can set the standard for how governance tokens operate, and our team will write an Ethereum Improvement Plan (similar to the ERC-20 standard) to accelerate decentralization for the entire ecosystem.
 COMP empowers community governance — it isn’t a fundraising device or investment opportunity. Until the decentralization process is complete, COMP will not be available to the public.[[3]](https://medium.com/compound-finance/compound-governance-5531f524cf68)  
 
 
-### Uniswap Governance Changed through time ###
-Several governance venues available to Uniswap governance are mentioned, each serving its own particular purpose. Gov.uniswap.org 278 is a Discourse forum for governance-related discussion. Community members must register for an account before sharing or liking posts. New members are required to enter 4 topics and read 15 posts over the course of 10 minutes before they are permitted to post themselves.          
+### Uniswap Recent UNI token Model ###
+Several governance venues available to Uniswap governance, each serving its own particular purpose. Gov.uniswap.org 278 is a Discourse forum for governance-related discussion.     
 **Phase 1: Temperature Check—Snapshot**    
-The purpose of the Temperature Check is to determine if there is sufficient will to make changes to the status quo.Ask a general, non-biased question to the community on gov.uniswap.org 418 about a potential change (example: “Should Uniswap governance add liquidity mining for XYZ token?”). Forum posts should be labeled as follows: “Temperature Check - [Your Title Here]”. The forum post should include a link to the associated Snapshot poll.
-Voters use Snapshot to indicate their interest in bringing it forward to the next stage. Snapshot poll lengths should be set to 3 days.     
+The purpose of the Temperature Check is to determine if there is sufficient will to make changes to the status quo.Ask a general, non-biased question to the community on gov.The Temperature Check process determines whether there is sufficient will to make changes to the status quo. At the end of the two days, a majority vote with a 25k UNI yes-vote threshold wins. If the Temperature check does not suggest a change from the status quo, the topic will be closed on the governance site. If the Temperature Check does suggest a change, proceed to    
 **Phase 2: Consensus Check — Discourse/Snapshot**     
-The purpose of the Consensus Check is to establish formal discussion around a potential proposal.
-Use feedback from the Temperature Check post and create a new Snapshot poll which covers the options which have gained support. This poll can either be binary or multiple choice but should include the option “Make no change” or its equivalent. Set the poll duration to 5 days.
-Create a new topic in the Proposal Discussion category on gov.uniswap.org 418 titled “Consensus Check — [Your Title Here]”. This will alert the community that this topic has already passed Temperature Check.    
+The purpose of the Consensus Check is to establish formal discussion around a potential proposal. The Consensus Check process incorporates feedback from the Temperature Check and establishes formal discussion around a potential proposal. Consensus Check is accompanied by another off-chain vote. At the end of five days, a majority vote with a 50k UNI yes-vote threshold wins.      
 **Phase 3: Governance Proposal — Governance Portal**  
-Phase 3 — Governance Proposal — is the final step of the governance process. The proposal should be based on the winning outcome from the Consensus Check and can consist of one or multiple actions, up to a maximum of 10 actions per proposal.
-To create a Governance Proposal:
-Write the code for your proposal, which can be voted on through any Governance Portal. More resources can be found here 219. All proposed code should be audited by a professional auditor. This auditing process could be paid or reimbursed by the community treasury.
-Ensure at least 10 million UNI is delegated to your address in order to submit a proposal, or find a delegate who has enough delegated UNI to meet the proposal threshold to propose on your behalf.[[4]](https://gov.uniswap.org/t/community-governance-process/7732)  
+A Governance Proposal is the final step in the governance process. The proposal should incorporate feedback from the Consensus Check and is accompanied by executable on-chain code. In order to submit an on-chain Governance proposal, a delegate must have a minimum balance of 2m UNI. The voting period lasts 7 days and a majority vote with a 40m UNI yes-vote threshold wins.[[4]](https://gov.uniswap.org/t/community-governance-process/7732)  
 
 
 """)
