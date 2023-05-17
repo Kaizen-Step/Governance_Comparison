@@ -16,11 +16,11 @@ with c1:
     st.text(" \n")
     st.image(Image.open('Images/Compound8.png'))
 
-with c2:
+with c3:
     st.text(" \n")
     st.text(" \n")
     st.image(Image.open('Images/Uniswap10.jpg'))
-with c3:
+with c2:
     st.text(" \n")
     st.text(" \n")
     st.image(Image.open('Images/Dao1.png'))
